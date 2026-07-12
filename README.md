@@ -35,6 +35,7 @@ Proposta editorial inicial: "As tecnologias e recursos que moldam o futuro".
 
 ## Estrutura da documentação
 
+- [VFS-000 - Princípios Fundamentais](docs/architecture/VFS-000-foundational-principles.md)
 - [VFS-001 - Visão Geral](docs/architecture/VFS-001-overview.md)
 - [VFS-002 - Contratos de Dados](docs/architecture/VFS-002-data-contracts.md)
 - [VFS-003 - Agente de Pesquisa](docs/agents/VFS-003-research-agent.md)
