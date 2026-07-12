@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "thumbnail-package.schema.json",
+  "title": "ThumbnailPackage",
+  "description": "Contrato mínimo v0.1.0 para o pacote produzido pelo Agente de Thumbnail.",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "package_id",
+    "created_at",
+    "script_package_id",
+    "main_concept",
+    "short_text",
+    "composition",
+    "variations"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "v0.1.0"
+    },
+    "package_id": {
+      "type": "string"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "script_package_id": {
+      "type": "string"
+    },
+    "main_concept": {
+      "type": "string"
+    },
+    "short_text": {
+      "type": "string"
+    },
+    "composition": {
+      "type": "string"
+    },
+    "visual_hierarchy": {
+      "type": "string"
+    },
+    "contrast_notes": {
+      "type": "string"
+    },
+    "small_screen_legibility": {
+      "type": "string"
+    },
+    "variations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "variation_id",
+          "description"
+        ],
+        "properties": {
+          "variation_id": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "short_text": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "open_questions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

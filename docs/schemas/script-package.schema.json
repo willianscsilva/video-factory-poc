@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "script-package.schema.json",
+  "title": "ScriptPackage",
+  "description": "Contrato mínimo v0.1.0 para o pacote produzido pelo Agente de Roteiro.",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "package_id",
+    "created_at",
+    "research_package_id",
+    "title_working",
+    "target_duration",
+    "hook",
+    "blocks"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "v0.1.0"
+    },
+    "package_id": {
+      "type": "string"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "research_package_id": {
+      "type": "string"
+    },
+    "title_working": {
+      "type": "string"
+    },
+    "target_duration": {
+      "type": "string"
+    },
+    "hook": {
+      "type": "string"
+    },
+    "blocks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "block_id",
+          "purpose",
+          "content"
+        ],
+        "properties": {
+          "block_id": {
+            "type": "string"
+          },
+          "purpose": {
+            "type": "string"
+          },
+          "content": {
+            "type": "string"
+          },
+          "claim_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "conclusion": {
+      "type": "string"
+    },
+    "cta": {
+      "type": "string"
+    },
+    "research_needs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

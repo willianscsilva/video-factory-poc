@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "visual-package.schema.json",
+  "title": "VisualPackage",
+  "description": "Contrato mínimo v0.1.0 para o pacote produzido pelo Agente de Direção Visual.",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "package_id",
+    "created_at",
+    "script_package_id",
+    "visual_style",
+    "scenes"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "v0.1.0"
+    },
+    "package_id": {
+      "type": "string"
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "script_package_id": {
+      "type": "string"
+    },
+    "visual_style": {
+      "type": "string"
+    },
+    "scenes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "scene_id",
+          "script_block_id",
+          "visual_description"
+        ],
+        "properties": {
+          "scene_id": {
+            "type": "string"
+          },
+          "script_block_id": {
+            "type": "string"
+          },
+          "visual_description": {
+            "type": "string"
+          },
+          "framing": {
+            "type": "string"
+          },
+          "movement": {
+            "type": "string"
+          },
+          "on_screen_elements": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "on_screen_text": {
+            "type": "string"
+          },
+          "transition": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "open_questions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}
