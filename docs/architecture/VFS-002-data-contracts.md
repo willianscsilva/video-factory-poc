@@ -101,6 +101,10 @@ Erros devem ser registrados sem apagar o contexto de entrada. Critérios definit
 
 Afirmações factuais devem preservar referência de origem quando aplicável. O `ResearchPackage` deve conter fontes. Pacotes posteriores devem manter referências ao pacote anterior e, quando necessário, às evidências usadas.
 
+No `ResearchPackage`, `sources` e `claims` devem conter ao menos um item, e os textos essenciais não podem ser vazios. Toda claim classificada como fato deve possuir `source_ids` com ao menos uma referência. Para hipóteses, opiniões e estimativas, `source_ids` permanece opcional.
+
+Todo identificador presente em `claims[].source_ids` deve corresponder a um `sources[].source_id` existente no mesmo `ResearchPackage`. O JSON Schema cobre apenas a estrutura dos identificadores; essa integridade referencial deverá ser verificada futuramente por um validador de domínio, cuja implementação permanece em aberto.
+
 ## Fato, hipótese, opinião e estimativa
 
 O pipeline deve distinguir:
@@ -130,6 +134,10 @@ Saída do Agente de Pesquisa, contendo resumo, fontes e afirmações classificad
 `sources` representa as evidências utilizadas durante a pesquisa. Uma fonte pode conter metadados como autor, título, URL, data, data de acesso e tipo da fonte. Esses metadados são conceituais nesta versão e não se tornam todos obrigatórios em `v0.1.0`.
 
 `claims` representa as afirmações produzidas pelo Agente de Pesquisa. Uma Claim pode conter texto, classificação, fonte ou fontes, observações e, futuramente, confiança como campo opcional. A classificação deve seguir a distinção entre fato, hipótese, opinião e estimativa.
+
+`source_conflicts` é opcional e registra discordâncias explícitas e relevantes entre duas ou mais fontes. Cada divergência identifica as fontes envolvidas, descreve objetivamente o conflito e pode registrar seu impacto e observações. Todo identificador presente em `source_conflicts[].source_ids` deve corresponder a um `sources[].source_id` existente no mesmo Package. Essa integridade referencial também caberá futuramente ao validador de domínio, e não à validação estrutural mínima do JSON Schema.
+
+`open_questions` é opcional e registra lacunas, perguntas ainda não respondidas ou pontos que exigem investigação posterior. Não deve ser usado como sinônimo de `source_conflicts`: uma questão em aberto representa conhecimento ainda incompleto, enquanto um conflito representa discordância explícita entre fontes.
 
 ## ScriptPackage
 

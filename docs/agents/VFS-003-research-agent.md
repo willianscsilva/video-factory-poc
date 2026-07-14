@@ -13,8 +13,10 @@ Produzir um `ResearchPackage` mínimo, verificável e rastreável para sustentar
 - Priorizar fontes primárias e confiáveis.
 - Registrar fontes e data de acesso quando aplicável.
 - Separar fato, hipótese, opinião e estimativa.
-- Sinalizar divergências entre fontes.
-- Explicitar lacunas de informação.
+- Registrar divergências relevantes e explícitas entre duas ou mais fontes em `source_conflicts`.
+- Registrar lacunas, perguntas ainda não respondidas e pontos que exigem investigação posterior em `open_questions`.
+- Garantir que claims classificadas como fato possuam ao menos uma referência em `source_ids`.
+- Referenciar apenas fontes existentes em `sources`.
 
 ## Entradas
 
@@ -31,6 +33,7 @@ Produzir um `ResearchPackage` mínimo, verificável e rastreável para sustentar
 - Não inventar informações.
 - Não omitir incertezas relevantes.
 - Não tratar estimativas como fatos.
+- Não usar `source_conflicts` e `open_questions` como sinônimos.
 
 ## Critérios de qualidade
 
@@ -44,12 +47,13 @@ Produzir um `ResearchPackage` mínimo, verificável e rastreável para sustentar
 
 - Informação inventada.
 - Ausência de fontes para afirmações factuais centrais.
+- Referência a uma fonte inexistente no `ResearchPackage`.
 - Mistura indevida entre fato, hipótese, opinião e estimativa.
 - Roteirização indevida do conteúdo.
 
 ## Comportamento esperado
 
-O agente deve produzir pesquisa suficiente para orientar o roteiro, sem decidir estrutura narrativa final. Quando uma informação não puder ser confirmada, deve registrar a limitação.
+O agente deve produzir pesquisa suficiente para orientar o roteiro, sem decidir estrutura narrativa final. Quando uma informação não puder ser confirmada, deve registrar a limitação em `open_questions`. Quando uma afirmação factual central não puder ser sustentada, deve falhar ou sinalizar explicitamente essa condição, sem apresentá-la como fato.
 
 ## Fora de responsabilidade
 
@@ -62,4 +66,3 @@ O agente deve produzir pesquisa suficiente para orientar o roteiro, sem decidir 
 
 - Status: TBD - Número mínimo de fontes por tema.
 - Status: TBD - Critério definitivo para fonte primária.
-- Status: TBD - Formato de registro de divergências.
